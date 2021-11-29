@@ -12,3 +12,4 @@ form.addEventListener('submit', (e) => {
     invoices.push(invoice);
     console.log(invoices);
 });
+//Sami är bäst
