@@ -1,4 +1,13 @@
 import { Invoice } from './classes/Invoice.js';
+import { Payment } from './classes/Payment.js';
+let docOne;
+let docTwo;
+docOne = new Invoice('Sami', 'web work', 500);
+docTwo = new Payment('Shoib', 'constructing work', 10000);
+let docs = [];
+docs.push(docOne);
+docs.push(docTwo);
+//console.log(docs); 
 let invoices = [];
 const form = document.querySelector('.new-item-form');
 //inputs 
@@ -8,8 +17,10 @@ const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const invoice = new Invoice(toFrom.value, details.value, parseInt(amount.value, 10));
-    invoices.push(invoice);
-    console.log(invoices);
+    let doc;
+    type.value === 'invoice' ?
+        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber) :
+        doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
+    console.log(doc);
 });
-//Sami är bäst
+//Begin from #17
